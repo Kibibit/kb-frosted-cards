@@ -4,7 +4,6 @@
   "description": "Make Cards and Popups blur everything behind them.",
   "homepage": "https://github.com/Kibibit/kb-frosted-cards#readme",
   "files": [
-    "INFO.md",
     "hacs.json",
     "kb-frosted-cards.js"
   ],

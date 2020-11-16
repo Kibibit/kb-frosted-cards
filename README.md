@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/Kibibit/kb-frosted-cards/" target="blank"><img src="screenshots/logo.gif" width="400" alt="achievibit Logo" />
+  <a href="https://github.com/Kibibit/kb-frosted-cards/" target="blank"><img src="https://thatkookooguy.github.io/https-assets/screenshots/kb-frosted-cards-logo.gif" width="400" alt="achievibit Logo" />
   </a>
   <h2 align="center">
     @kibibit/kb-frosted-cards
@@ -26,8 +26,8 @@
 5. Reload the frontend
 
 ## How it looks?
-![](screenshots/kb-frosted-cards.gif)
-![](screenshots/example.png)
+![](https://thatkookooguy.github.io/https-assets/screenshots/kb-frosted-cards-example1.gif)
+![](https://thatkookooguy.github.io/https-assets/screenshots/kb-frosted-cards-example2.png)
 
 ## Stay in touch
 
