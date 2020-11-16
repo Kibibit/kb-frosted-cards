@@ -15,6 +15,12 @@
   Make HA Cards and Popups blur everything behind them.
 </p>
 <hr>
+<img src="https://thatkookooguy.github.io/https-assets/hassio-theme-logo.png" width=150>
+
+Created for the Home Assistant [kibibit Theme](https://github.com/kibibit/hass-kibibit-theme)
+> It have transparent card background colors, support multiple backgrounds, and custom local backgrounds
+
+
 
 ## Installation
 ### HACS
@@ -27,7 +33,15 @@
 6. Press `Install this Repository in HACs`.
 7. When prompted, reload the frontend
 
-## How it looks?
+### Manual Installation
+
+1. Create a folder named `kb-frosted-cards` in your `config/www` folder.
+2. Copy the file `kb-frosted-cards.js` into that folder.
+3. In HA GUI, go to `Configuration` => `Lovelace Dashboards` => `Resources`, and click the `+` button to add a resource.
+4. A popup will open. In the url field, fill in `/local/kb-frosted-cards/kb-frosted-cards.js`, and select `JavaScript Module` in the dropdown.
+5. Refresh the Home Assistant Frontend.
+
+## How does it look?
 ![](https://thatkookooguy.github.io/https-assets/screenshots/kb-frosted-cards-example1.gif)
 ![](https://thatkookooguy.github.io/https-assets/screenshots/kb-frosted-cards-example2.png)
 
