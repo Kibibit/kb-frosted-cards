@@ -20,10 +20,12 @@
 ### HACS
 
 1. Go to the Community Store.
-2. Search for `kibibit`.
-3. Navigate to `kibibit` theme.
-4. Press `Install`.
-5. Reload the frontend
+2. Select `Frontend`.
+3. Click on the `+` button
+4. Search for `kibibit Frosted Cards`.
+5. Click on it.
+6. Press `Install this Repository in HACs`.
+7. When prompted, reload the frontend
 
 ## How it looks?
 ![](https://thatkookooguy.github.io/https-assets/screenshots/kb-frosted-cards-example1.gif)
