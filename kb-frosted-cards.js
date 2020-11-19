@@ -90,7 +90,7 @@
         }
 
         waitedFor += 2000;
-        return waitP(2000).then(() => waitUntilDefined(elementName));
+        return waitP(2000).then(() => waitUntilDefined(elementName, timeout, enforceOld));
       });
   }
 })();
