@@ -86,10 +86,11 @@
         }
 
         if (waitedFor >= timeout) {
-          throw new Error(elementName + " was not defined before timeout");
+          // throw new Error(elementName + " was not defined before timeout");
+          console.info('waited for a long time. going into hibernate mode (checking every 10 seconds)');
         }
 
-        waitedFor += 2000;
+        waitedFor += waitedFor >= timeout ? 10000 : 2000;
         return waitP(2000).then(() => waitUntilDefined(elementName, timeout, enforceOld));
       });
   }
