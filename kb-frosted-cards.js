@@ -90,8 +90,9 @@
           console.info('waited for a long time. going into hibernate mode (checking every 10 seconds)');
         }
 
-        waitedFor += waitedFor >= timeout ? 10000 : 2000;
-        return waitP(2000).then(() => waitUntilDefined(elementName, timeout, enforceOld));
+        let waitMilli = waitedFor >= timeout ? 10000 : 2000;
+        waitedFor += waitMilli;
+        return waitP(waitMilli).then(() => waitUntilDefined(elementName, timeout, enforceOld));
       });
   }
 })();
