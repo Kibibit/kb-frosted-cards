@@ -4,7 +4,9 @@ cardMods.set('ha-dialog', '.mdc-dialog__surface { backdrop-filter: blur(5px); }'
 
 const injectPromises = Array.from( cardMods ).map(([cardName, cssRule]) => addCssToCard(cardName, cssRule));
 
-Promise.all(injectPromises)
+Promise.resolve()
+.then(() => wait())
+.then(() => Promise.all(injectPromises))
 .then(() => {
   // Force lovelace to redraw everything
   const ev = new Event("ll-rebuild", {
@@ -28,6 +30,12 @@ Promise.all(injectPromises)
   root = root && root.firstElementChild;
   if (root) root.dispatchEvent(ev);
 });
+
+function wait(timeout) {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(), timeout || 3000);
+  });
+}
 
 function addCssToCard(cardName, cssRule) {
   return Promise.resolve()
