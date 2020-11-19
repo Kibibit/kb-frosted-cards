@@ -5,7 +5,7 @@ cardMods.set('ha-dialog', '.mdc-dialog__surface { backdrop-filter: blur(5px); }'
 const injectPromises = Array.from( cardMods ).map(([cardName, cssRule]) => addCssToCard(cardName, cssRule));
 
 Promise.resolve()
-.then(() => wait())
+.then(() => wait(5000))
 .then(() => Promise.all(injectPromises))
 .then(() => {
   // Force lovelace to redraw everything
