@@ -8,7 +8,7 @@
   );
 
   const injectPromises = Array.from(cardMods).map(([cardName, cssRule]) =>
-    addCssToCard(cardName, cssRule)
+    addCssToCard(cardName, cssRule, cardName === "ha-card")
   );
 
   Promise.resolve()
@@ -43,9 +43,9 @@
     });
   }
 
-  function addCssToCard(cardName, cssRule) {
+  function addCssToCard(cardName, cssRule, enforceOld) {
     return Promise.resolve()
-      .then(() => waitUntilDefined(cardName))
+      .then(() => waitUntilDefined(cardName, undefined, enforceOld))
       .then((cardClass) => insertStyleRule(cardClass, cssRule))
       .catch((err) => console.error(err));
   }
@@ -64,24 +64,33 @@
     }
   }
 
-  function waitUntilDefined(elementName, timeout) {
+  function waitUntilDefined(elementName, timeout, enforceOld) {
     timeout = timeout || 10000;
     return Promise.resolve()
-    .then(() => customElements.get(elementName))
-    .then((customElement) => {
-      if (customElement && customElement._styles && customElement._styles[0]) {
-        waitedFor = 0;
-        return customElement;
-      }
+      .then(() => customElements.get(elementName))
+      .then((customElement) => {
+        const isOldStyleDefined =
+          customElement && customElement._styles && customElement._styles[0];
+        const isNewStyleDefined = Array.isArray(customElement.getStyles())
+          ? customElement.getStyles()[0].styleSheet
+          : customElement.getStyles().styleSheet;
 
-      if (waitedFor >= timeout) {
-        throw new Error(elementName + ' was not defined before timeout');
-      }
+        if (
+          customElement &&
+          (enforceOld
+            ? isOldStyleDefined
+            : isOldStyleDefined || isNewStyleDefined)
+        ) {
+          waitedFor = 0;
+          return customElement;
+        }
 
-      waitedFor += 2000;
-      return waitP(2000)
-        .then(() => waitUntilDefined(elementName));
-    })
-    
+        if (waitedFor >= timeout) {
+          throw new Error(elementName + " was not defined before timeout");
+        }
+
+        waitedFor += 2000;
+        return waitP(2000).then(() => waitUntilDefined(elementName));
+      });
   }
 })();
