@@ -12,7 +12,7 @@
     addCssToCard(cardName, cssRule, cardName === "ha-card")
   );
 
-  waitUntilDefined('ha-button-menu', undefined, enforceOld)
+  waitUntilDefined('ha-button-menu')
   .then(() => customElements.get('ha-button-menu').render = () => console.log('rendering!'));
 
   Promise.resolve()
