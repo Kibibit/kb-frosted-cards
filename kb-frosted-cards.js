@@ -13,7 +13,24 @@
   );
 
   waitUntilDefined('ha-button-menu')
-  .then(() => customElements.get('ha-button-menu').render = () => console.log('rendering!'));
+  .then(() => {
+    customElements.get('ha-button-menu').render = function render() {
+      console.log('called MY rendering function!');
+      return html`
+        <div @click=${this._handleClick}>
+          <slot name="trigger"></slot>
+        </div>
+        <mwc-menu
+          .corner=${this.corner}
+          .multi=${this.multi}
+          .fixed="true"
+          .activatable=${this.activatable}
+        >
+          <slot></slot>
+        </mwc-menu>
+      `;
+    }
+  });
 
   Promise.resolve()
     .then(() => Promise.all(injectPromises))
