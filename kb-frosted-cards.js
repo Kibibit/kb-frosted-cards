@@ -16,7 +16,7 @@
   .then(() => {
     customElements.get('ha-button-menu').render = function render() {
       console.log('called MY rendering function!');
-      return html`
+      return `
         <div @click=${this._handleClick}>
           <slot name="trigger"></slot>
         </div>
