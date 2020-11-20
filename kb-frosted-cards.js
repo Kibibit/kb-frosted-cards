@@ -6,11 +6,14 @@
     "ha-dialog",
     ".mdc-dialog__surface { backdrop-filter: blur(5px); }"
   );
-  cardMods.set('mwc-menu-surface', '.mdc-menu-surface { top: initial !important; left: initial !important; bottom: 0; right: 0 }');
+  // cardMods.set('mwc-menu-surface', '.mdc-menu-surface { top: initial !important; left: initial !important; bottom: 0; right: 0 }');
 
   const injectPromises = Array.from(cardMods).map(([cardName, cssRule]) =>
     addCssToCard(cardName, cssRule, cardName === "ha-card")
   );
+
+  waitUntilDefined('ha-button-menu', undefined, enforceOld)
+  .then(() => customElements.get('ha-button-menu').render = () => console.log('rendering!'));
 
   Promise.resolve()
     .then(() => Promise.all(injectPromises))
