@@ -31,7 +31,7 @@
           <slot></slot>
         </mwc-menu>
       `;
-    }
+    }.bind(customElements.get('ha-button-menu'))
   });
 
   Promise.resolve()
