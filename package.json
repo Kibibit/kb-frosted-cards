@@ -29,6 +29,8 @@
   },
   "scripts": {
     "commit": "cz",
+    "contributors:add": "HUSKY_SKIP_HOOKS=1 all-contributors add",
+    "contributors:generate": "HUSKY_SKIP_HOOKS=1 all-contributors generate",
     "semantic-release": "semantic-release",
     "semantic-release:init": "semantic-release-cli setup"
   },
