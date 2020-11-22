@@ -12,27 +12,27 @@
     addCssToCard(cardName, cssRule, cardName === "ha-card")
   );
 
-  waitUntilDefined('ha-button-menu')
-  .then(() => {
-    customElements.get('ha-button-menu').render = function render() {
-      console.log('called MY rendering function!');
-      console.log('is THIS correct??');
-      console.log(this.corner);
-      return `
-        <div @click=${this._handleClick}>
-          <slot name="trigger"></slot>
-        </div>
-        <mwc-menu
-          .corner=${this.corner}
-          .multi=${this.multi}
-          .fixed="true"
-          .activatable=${this.activatable}
-        >
-          <slot></slot>
-        </mwc-menu>
-      `;
-    }.bind(customElements.get('ha-button-menu'))
-  });
+  // waitUntilDefined('ha-button-menu')
+  // .then(() => {
+  //   customElements.get('ha-button-menu').render = function render() {
+  //     console.log('called MY rendering function!');
+  //     console.log('is THIS correct??');
+  //     console.log(this.corner);
+  //     return `
+  //       <div @click=${this._handleClick}>
+  //         <slot name="trigger"></slot>
+  //       </div>
+  //       <mwc-menu
+  //         .corner=${this.corner}
+  //         .multi=${this.multi}
+  //         .fixed="true"
+  //         .activatable=${this.activatable}
+  //       >
+  //         <slot></slot>
+  //       </mwc-menu>
+  //     `;
+  //   }.bind(customElements.get('ha-button-menu'))
+  // });
 
   Promise.resolve()
     .then(() => Promise.all(injectPromises))
